@@ -1,5 +1,47 @@
 <style type="text/css">
 
+p {
+
+}
+
+body {
+	background: #edcbe6;
+}
+
+h1 {
+	background: white;
+	margin: auto;
+	margin-top: 15%;
+	margin-bottom: 1%;
+	width: 50%;
+	border-radius: 5px;
+}
+
+#login-button {
+	background: white;
+	margin: auto;
+	width: 10%;
+	border-radius: 5px;
+	display: block;
+}
+
 .login {
-  background: #edcbe6;
+	color: white;
+	background: #65548f;
+	margin: auto;
+	width: 50%;
+	border-radius: 5px;
+}
+
+#forgot-password {
+	color: white;
+}
+
+input {
+	display: block;
+	width: 90%;
+	margin: auto;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border-radius: 5px;
 }
