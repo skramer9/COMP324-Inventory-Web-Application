@@ -8,6 +8,7 @@ p {
 body {
     font-family: Verdana, Helvetica, Arial;
 }
+
 /*login page background color */
 body.login-page {
 	background: #edcbe6;
@@ -37,6 +38,7 @@ h1 {
 	width: 50%;
 	border-radius: 5px;
 }
+
 /* forgot password button */
 #forgot-password {
 	color: white;
@@ -56,9 +58,15 @@ input {
 	margin-left: 150px;
 }
 
+/* all text in the home banner is white */
 .home-banner {
-	background: grey;
 	color: white;
+}
+
+/* homebanner background gradiant at 180 degrees (up and down) from a light grey to dark grey */
+section.home-banner {
+	background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
+	height: 100px;
 }
 
 /* add to your collections and create a new collection buttons */
@@ -79,10 +87,12 @@ nav.side-nav {
 	top: 0;
 }
 
-.collections {
-	text-align: center;
-}
 /* sidenav links should not appear as inline */
 a.side-nav {
 	display: block;
+	text-align: center;
+}
+
+.collections {
+	text-align: center;
 }
