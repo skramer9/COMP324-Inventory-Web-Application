@@ -6,14 +6,17 @@
     <title>Inventory Site</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body class="login-page">
     <h1>Login to view your collections</h1>
     <form class="login">
       <label for="username-input">Email</label>
       <input id="username-input" type="text">
       <label for="password-input">Password</label>
       <input id="password-input" type="text">
-      <button id="login-button">Sign In</button>
+      <!-- currently, the button has a link that takes you to the main page, 
+      eventually, this will probably be replaced with an event listener that 
+      will verify the login info -->
+      <button id="login-button"><a href="main.html">Sign In</a></button>
       <a id="forgot-password" href="">Forgot password?</a>
     </form>
   </body>

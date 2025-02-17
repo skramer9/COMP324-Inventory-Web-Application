@@ -4,7 +4,12 @@ p {
 
 }
 
+/* fonts applied to whole site */
 body {
+    font-family: Verdana, Helvetica, Arial;
+}
+/*login page background color */
+body.login-page {
 	background: #edcbe6;
 }
 
@@ -32,7 +37,7 @@ h1 {
 	width: 50%;
 	border-radius: 5px;
 }
-
+/* forgot password button */
 #forgot-password {
 	color: white;
 }
@@ -44,4 +49,40 @@ input {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	border-radius: 5px;
+}
+
+/* left margin should be the same as the side nav width */
+.main-page{
+	margin-left: 150px;
+}
+
+.home-banner {
+	background: grey;
+	color: white;
+}
+
+/* add to your collections and create a new collection buttons */
+button.home-banner {
+	color: white;
+	background: #65548f;
+	border-radius: 5px;
+}
+
+/* side navigation bar */
+nav.side-nav {
+	height: 100%;
+	width: 150px;
+	background: #FFBDF7;
+	position: fixed;
+	overflow-x: hidden;
+	left: 0;
+	top: 0;
+}
+
+.collections {
+	text-align: center;
+}
+/* sidenav links should not appear as inline */
+a.side-nav {
+	display: block;
 }
