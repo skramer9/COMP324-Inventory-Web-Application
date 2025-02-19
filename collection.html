@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Collection View</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="main-page">
+    <!-- Side navigation with recently accessed collections -->
+    <nav class="side-nav">
+      <a href="main.html" class="side-nav">Back to Home</a>
+      
+      <div class="recent-collections">
+        <h3>Recently accessed</h3>
+        <a href="" class="side-nav">Wants</a>
+        <a href="" class="side-nav">Restaurants to try</a>
+        <a href="" class="side-nav">Movies to watch</a>
+        <a href="" class="side-nav">Books read in 2024</a>
+      </div>
+    </nav>
+
+    <!-- Banner section with background image -->
+    <section class="collection-banner">
+      <h1>Books read in 2024</h1>
+      <div class="banner-buttons">
+        <button id="add-item-button" class="add-button"><span class="plus">+</span> Add item</button>
+        <button id="new-collection-button" class="add-button"><span class="plus">+</span> Start a new collection</button>
+      </div>
+    </section>
+
+    <!-- Filter section -->
+    <div class="filter-section">
+      <label class="filter-checkbox">
+        <input type="checkbox" checked>
+        Favorites
+      </label>
+      <div class="sort-dropdown">
+        Sort by ▾
+      </div>
+      <div class="rating-filter">
+        Avg. rating
+      </div>
+    </div>
+
+    <!-- Items display section -->
+    <section class="collections">
+      <p>No collections yet, try adding one!</p>
+    </section>
+
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
