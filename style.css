@@ -96,3 +96,267 @@ a.side-nav {
 .collections {
 	text-align: center;
 }
+
+/* Item card styling */
+.item-card {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-card h3 {
+    color: #65548f;
+    margin: 10px 0;
+}
+
+.item-card button {
+    margin: 5px;
+}
+
+/* Collection banner styling */
+.collection-banner {
+    background-image: url('books-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: white;
+    position: relative;
+}
+
+.collection-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.collection-banner h1 {
+    position: relative;
+    z-index: 2;
+    background: none;
+    color: white;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.banner-buttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+}
+
+/* Filter section */
+.filter-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    background: #f5f5f5;
+    border-radius: 20px;
+}
+
+/* Item row styling */
+.collection-items {
+    padding: 20px;
+}
+
+.item-row {
+    display: flex;
+    align-items: start;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    gap: 20px;
+}
+
+.item-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h3 {
+    margin: 0;
+    color: #333;
+}
+
+.author {
+    color: #666;
+    margin: 5px 0;
+}
+
+.description {
+    color: #444;
+    line-height: 1.4;
+}
+
+.item-rating {
+    color: #ffd700;
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+    color: #ff4081;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Add button styling */
+.add-button {
+    background: #65548f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.plus {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Recent collections section in side nav */
+.recent-collections {
+    margin-top: 30px;
+}
+
+.recent-collections h3 {
+    color: #65548f;
+    font-size: 0.9em;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    background: none;
+}
+
+/* Adjust the side nav links to look more like a list */
+.side-nav a {
+    color: #65548f;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.side-nav a:hover {
+    background-color: rgba(101, 84, 143, 0.1);
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Hide empty state when items exist */
+.collection-items:not(:empty) .empty-state {
+    display: none;
+}
+
+/* Make sure all interactive elements have pointer cursor */
+.add-button, 
+.new-collection-button,
+.banner-buttons button,
+.filter-checkbox,
+.sort-dropdown,
+.rating-filter {
+    cursor: pointer !important;
+}
+
+/* Ensure buttons in the banner section also have pointer cursor */
+.collection-banner button {
+    cursor: pointer !important;
+}
+
+/* Add item form styling */
+.popup-page {
+    padding: 20px;
+    background: #edcbe6;
+    margin: 0;
+}
+
+.popup-page h2 {
+    color: #65548f;
+    margin-bottom: 20px;
+}
+
+.add-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-item-form label {
+    color: #65548f;
+    margin-top: 10px;
+}
+
+.add-item-form input,
+.add-item-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.add-item-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Make form inputs take up less vertical space */
+.add-item-form input,
+.add-item-form textarea {
+    margin: 5px 0;
+}
