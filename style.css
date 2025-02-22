@@ -230,8 +230,8 @@ a.side-nav {
     cursor: pointer;
 }
 
-/* Add button styling */
-.add-button {
+/* Styling for the add item button and the update item button */
+.add-button, .update-button {
     background: #65548f;
     color: white;
     border: none;
