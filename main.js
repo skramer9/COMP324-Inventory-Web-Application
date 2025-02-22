@@ -8,7 +8,7 @@ function mainApp() {
 	// create a popup window of addItem.html when the user clicks on the add item button
 	let addItemButton = document.getElementById('add-item-button');
 	addItemButton.addEventListener('click', () => {
-		window.open('addItem.html', 'Add a new item', 'width=400, height=400, popup=true');
+		window.open('addItem.html', 'Add a new item', 'width=400, height=600, popup=true');
 	});
 }
 
