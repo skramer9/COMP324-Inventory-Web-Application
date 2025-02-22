@@ -360,3 +360,66 @@ a.side-nav {
 .add-item-form textarea {
     margin: 5px 0;
 }
+
+/* Item details page styling */
+.item-details-container {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+.item-main-content {
+    display: flex;
+    gap: 30px;
+}
+
+.item-large-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h2 {
+    color: #65548f;
+    margin-top: 0;
+}
+
+.item-category, .item-date {
+    color: #666;
+    margin: 10px 0;
+}
+
+.item-description {
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.item-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin: 15px 0;
+}
+
+.item-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tag {
+    background: #edcbe6;
+    color: #65548f;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+#delete-item-button {
+    background: #ff6b6b;
+}
