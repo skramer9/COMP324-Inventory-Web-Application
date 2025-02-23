@@ -423,3 +423,31 @@ a.side-nav {
 #delete-item-button {
     background: #ff6b6b;
 }
+
+.add-collection-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-collection-form label {
+    color:#65548f;
+    margin-top: 10px;
+}
+
+.add-collection-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.add-collection-form input, .add-collection-form textarea {
+    padding: 8px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    width: 100%
+}
+
+.add-collection-form input, .add-collection-form textarea {
+    margin:5px 0;
+}
+
