@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Start New Collection</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="popup-page">
+        <h2>Start New Collection</h2>
+        <form class="add-collection-form">
+            <label for="collection-name">Collection Name</label>
+            <input type="text" id="collection-name" required>
+
+            <label for="collection-description">Description</label>
+            <textarea id="collection-description"></textarea>
+
+            <label for="collection-category">Category</label>
+            <input type="text" id="collection-category">
+
+            <label for="collection-image">Image Upload</label>
+            <input type="file" id="item-image" accept="imgae/*">
+
+            <div class="form-buttons">
+                <button type="submit" class="add-button">Create Collection</button>
+                <button type="button" class="cancel-button" onclick="window.close()">Cancel</button>
+            </div>
+        </form>
+    </body>
+</html>
