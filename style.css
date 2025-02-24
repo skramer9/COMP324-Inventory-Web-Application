@@ -93,8 +93,15 @@ a.side-nav {
 	text-align: center;
 }
 
+/* Update collections class to align left */
 .collections {
-	text-align: center;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Make sure the empty state message stays centered */
+.collections > p {
+    text-align: center;
 }
 
 /* Item card styling */
