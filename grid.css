@@ -1,15 +1,4 @@
 
-.main-page {
-	margin: 0 0 0;
-	display: grid;
-	grid-template-columns: 1fr 9fr;
-	grid-template-areas: 
-		"top-nav"
-		"side-nav"
-		"home-banner"
-		"collections"
-}
-
 .top-nav {
 	grid-area: top-nav;
 	grid-column: 2;
@@ -23,6 +12,18 @@ nav.side-nav {
 	height: 100vh;
 }
 
+
+.main-page {
+	margin: 0 0 0;
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+	grid-template-areas: 
+		"top-nav"
+		"side-nav"
+		"home-banner"
+		"collections"
+}
+
 .home-banner {
 	grid-area: home-banner;
 	grid-column: 2;
@@ -31,6 +32,29 @@ nav.side-nav {
 
 .collections {
 	grid-area: collections;
+	grid-column: 2;
+	grid-row: 3;
+}
+
+.item-page {
+	margin: 0 0 0;
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+	grid-template-areas: 
+		"top-nav"
+		"side-nav"
+		"item-banner"
+		"item-details-container"
+}
+
+.item-banner {
+	grid-area: item-banner;
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.item-details-container {
+	grid-area: item-details-container;
 	grid-column: 2;
 	grid-row: 3;
 }
