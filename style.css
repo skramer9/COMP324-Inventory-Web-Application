@@ -67,6 +67,7 @@ input {
 section.home-banner {
 	background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
 	height: 100px;
+    padding: 20px;
 }
 
 /* add to your collections and create a new collection buttons */
@@ -78,13 +79,7 @@ button.home-banner {
 
 /* side navigation bar */
 nav.side-nav {
-	height: 100%;
-	width: 150px;
 	background: #FFBDF7;
-	position: fixed;
-	overflow-x: hidden;
-	left: 0;
-	top: 0;
 }
 
 /* sidenav links should not appear as inline */

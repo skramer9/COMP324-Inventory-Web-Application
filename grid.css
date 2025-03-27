@@ -1,0 +1,36 @@
+
+.main-page {
+	margin: 0 0 0;
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+	grid-template-areas: 
+		"top-nav"
+		"side-nav"
+		"home-banner"
+		"collections"
+}
+
+.top-nav {
+	grid-area: top-nav;
+	grid-column: 2;
+	padding: 20px;
+}
+
+nav.side-nav {
+	grid-area: side-nav;
+	grid-column: 1;
+	grid-row: 1/-1;
+	height: 100vh;
+}
+
+.home-banner {
+	grid-area: home-banner;
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.collections {
+	grid-area: collections;
+	grid-column: 2;
+	grid-row: 3;
+}
