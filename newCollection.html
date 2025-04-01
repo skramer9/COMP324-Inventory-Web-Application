@@ -34,8 +34,19 @@
 
             <div class="form-buttons">
                 <button type="submit" class="add-button">Create Collection</button>
-                <button type="button" class="cancel-button" onclick="window.close()">Cancel</button>
+                <button type="button" class="cancel-button" onclick="window.parent.postMessage('closeModal', '*')">Cancel</button>
             </div>
         </form>
+        <script>
+          const form = document.querySelector('form');
+          
+          if (form) {
+            form.addEventListener('submit', (e) => {
+              e.preventDefault();
+              // Process form data here
+              window.parent.postMessage('closeModal', '*');
+            });
+          }
+        </script>
     </body>
 </html>
