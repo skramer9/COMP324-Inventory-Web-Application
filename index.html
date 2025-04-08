@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Inventory Site</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="login-page">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login with Firebase</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="login-container">
     <h1>Login to view your collections</h1>
-    <form class="login">
-      <label for="username-input">Email</label>
-      <input id="username-input" type="text">
-      <label for="password-input">Password</label>
-      <input id="password-input" type="password">
-      <!-- currently, the button has a link that takes you to the main page, 
-      eventually, this will probably be replaced with an event listener that 
-      will verify the login info -->
-      <button id="login-button"><a href="main.html">Sign In</a></button>
-      <a id="forgot-password" href="">Forgot password?</a>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Password" required />
+
+      <button type="submit">Login</button>
+      <p id="error-message"></p>
     </form>
-  </body>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
 </html>
