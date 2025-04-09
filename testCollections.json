@@ -1,0 +1,19 @@
+{
+	"collections": [
+		{
+			"name": "Resturaunts",
+			"id": 0,
+			"lastAccessed": "2025-04-09T4:59:43.511Z"
+		},
+		{
+			"name": "Albums",
+			"id": 1,
+			"lastAccessed": "2025-04-09T5:01:43.511Z"
+		},
+		{
+			"name": "Books",
+			"id": 2,
+			"lastAccessed": "2025-04-09T4:01:43.511Z"
+		}
+	]
+}

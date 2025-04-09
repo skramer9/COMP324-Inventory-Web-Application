@@ -99,6 +99,14 @@ a.side-nav {
     text-align: center;
 }
 
+.displayCollection {
+    background: #65548f;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
 /* Item card styling */
 .item-card {
     background: white;
@@ -452,4 +460,3 @@ a.side-nav {
 .add-collection-form input, .add-collection-form textarea {
     margin:5px 0;
 }
-
