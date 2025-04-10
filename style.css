@@ -107,6 +107,19 @@ a.side-nav {
     border-radius: 5px;
 }
 
+.display-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.item-description {
+    font-size: 12px;
+}
+
+a.item-link,
 a.collection-link {
     color: white;
     text-decoration: none;

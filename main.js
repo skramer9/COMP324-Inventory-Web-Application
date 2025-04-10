@@ -30,7 +30,7 @@ function loadCollections() {
 		const collections = jsonData['collections'].reduce((accumulator, currentVal) => {
             const container = document.createElement('div');
 			const link = document.createElement('a');
-			link.href = 'collection.html';
+			link.href = 'collection.html?collection=' + currentVal.name.toLowerCase();
 			link.classList.add('collection-link');
 			container.classList.add('display-collection');
             const collectionText = document.createTextNode(currentVal.name);
