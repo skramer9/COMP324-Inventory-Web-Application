@@ -99,6 +99,32 @@ a.side-nav {
     text-align: center;
 }
 
+.display-collection {
+    background: #65548f;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.display-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.item-description {
+    font-size: 12px;
+}
+
+a.item-link,
+a.collection-link {
+    color: white;
+    text-decoration: none;
+}
+
 /* Item card styling */
 .item-card {
     background: white;
@@ -452,4 +478,3 @@ a.side-nav {
 .add-collection-form input, .add-collection-form textarea {
     margin:5px 0;
 }
-
