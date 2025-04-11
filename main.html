@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="utf-8">
@@ -8,11 +7,6 @@
     <link rel="stylesheet" href="grid.css">
   </head>
   <body class="main-page">
-    <nav class="top-nav">
-      <a href="">option 1</a>
-      <a href="">option 2</a>
-      <a href="">option 3</a>
-    </nav>
     <!-- Side navigation with recently accessed collections -->
     <nav class="side-nav">
       <a href="main.html" class="side-nav">Back to Home</a>
@@ -26,20 +20,24 @@
       </div>
     </nav>
 
-    <section class="home-banner">
-      <h2>Your Collections</h2>
-      <button id="add-item-button" class="home-banner">Add to your collections</button>
-      <button id="new-collection-button" class = "home-banner">Start a new collection</button>
-    </section>
-    <section class="collections">
-      <p>Nothing to see here! Add a collection, and it will show up here!</p>
+    <!-- Banner section with background image -->
+    <section class="collection-banner">
+      <h1>Your Collections</h1>
+      <div class="banner-buttons">
+        <button id="new-collection-button" class="add-button"><span class="plus">+</span> Start a new collection</button>
+      </div>
     </section>
 
-    <!-- Modal container -->
+    <!-- Items display section -->
+    <section id="collections">
+      <p id="no-collections">Nothing to see here! Add a collection, and it will show up here!</p>
+    </section>
+
+    <!-- Modal for New Collection -->
     <div id="modal-container" class="modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+        <iframe id="modal-iframe" src="newCollection.html" frameborder="0"></iframe>
       </div>
     </div>
 

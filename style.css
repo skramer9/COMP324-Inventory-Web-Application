@@ -1,91 +1,89 @@
-<style type="text/css">
-
-p {
-
-}
-
 /* fonts applied to whole site */
 body {
     font-family: Verdana, Helvetica, Arial;
 }
 
-/*login page background color */
+/* login page background color */
 body.login-page {
-	background: #edcbe6;
+    background: #edcbe6;
 }
 
 h1 {
-	background: white;
-	margin: auto;
-	margin-top: 15%;
-	margin-bottom: 1%;
-	width: 50%;
-	border-radius: 5px;
+    background: white;
+    margin: auto;
+    margin-top: 15%;
+    margin-bottom: 1%;
+    width: 50%;
+    border-radius: 5px;
 }
 
 #login-button {
-	background: white;
-	margin: auto;
-	width: 10%;
-	border-radius: 5px;
-	display: block;
+    background: white;
+    margin: auto;
+    width: 10%;
+    border-radius: 5px;
+    display: block;
 }
 
 .login {
-	color: white;
-	background: #65548f;
-	margin: auto;
-	width: 50%;
-	border-radius: 5px;
+    color: white;
+    background: #65548f;
+    margin: auto;
+    width: 50%;
+    border-radius: 5px;
 }
 
 /* forgot password button */
 #forgot-password {
-	color: white;
+    color: white;
 }
 
 input {
-	display: block;
-	width: 90%;
-	margin: auto;
-	margin-top: 1%;
-	margin-bottom: 1%;
-	border-radius: 5px;
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 5px;
 }
 
 /* left margin should be the same as the side nav width */
-.main-page{
-	margin-left: 150px;
+.main-page {
+    margin-left: 150px;
 }
 
 /* all text in the home banner is white */
 .home-banner {
-	color: white;
+    color: white;
 }
 
-/* homebanner background gradiant at 180 degrees (up and down) from a light grey to dark grey */
+/* homebanner background gradient at 180 degrees (up and down) from a light grey to dark grey */
 section.home-banner {
-	background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
-	height: 100px;
+    background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
+    height: 120px;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* add to your collections and create a new collection buttons */
-button.home-banner {
-	color: white;
-	background: #65548f;
-	border-radius: 5px;
+button#new-collection-button {
+    color: white;
+    background: #65548f;
+    border-radius: 5px;
+    padding: 10px 20px;
 }
 
 /* side navigation bar */
 nav.side-nav {
-	background: #FFBDF7;
+    background: #FFBDF7;
 }
 
 /* sidenav links should not appear as inline */
 a.side-nav {
-	display: block;
-	text-align: center;
+    display: block;
+    text-align: center;
 }
 
 /* Update collections class to align left */
@@ -97,6 +95,32 @@ a.side-nav {
 /* Make sure the empty state message stays centered */
 .collections > p {
     text-align: center;
+}
+
+.display-collection {
+    background: #65548f;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.display-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.item-description {
+    font-size: 12px;
+}
+
+a.item-link,
+a.collection-link {
+    color: white;
+    text-decoration: none;
 }
 
 /* Item card styling */
