@@ -21,7 +21,7 @@ function loadCollection() {
 			description.classList.add('item-description');
 			const blurb = document.createTextNode(currentVal.blurb);
 			description.appendChild(blurb);
-			link.href = 'item.html?item=' + currentVal.name.toLowerCase();
+			link.href = 'item.html?collection=' + collectionName + '&item=' + currentVal.name.toLowerCase();
 			link.classList.add('item-link');
             const itemName = document.createTextNode(currentVal.name);
 			link.appendChild(itemName);

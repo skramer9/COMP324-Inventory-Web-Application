@@ -395,6 +395,7 @@ a.collection-link {
     margin: 20px;
     background: white;
     border-radius: 5px;
+    text-transform: capitalize;
 }
 
 .item-main-content {
@@ -413,12 +414,12 @@ a.collection-link {
     flex: 1;
 }
 
-.item-info h2 {
+#item-name {
     color: #65548f;
     margin-top: 0;
 }
 
-.item-category, .item-date {
+.item-collection, .item-date {
     color: #666;
     margin: 10px 0;
 }
@@ -426,6 +427,7 @@ a.collection-link {
 .item-description {
     line-height: 1.6;
     margin: 20px 0;
+    text-transform: none;
 }
 
 .item-rating {
