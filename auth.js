@@ -9,7 +9,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       .then((userCredential) => {
         // Successful login
         alert("Login successful!");
-        window.location.href = "dashboard.html"; // Redirect
+        window.location.href = "main.html"; // Redirect
       })
       .catch((error) => {
         errorMessage.textContent = error.message;
