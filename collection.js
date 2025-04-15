@@ -3,6 +3,7 @@ function loadCollection() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const collectionName = urlParams.get('collection');
 	const collectionDisplay = document.querySelector('.collections');
+	const noItems = document.getElementById('no-items');
 
 	fetch(collectionName + '.json')
     .then(response => {
@@ -30,6 +31,7 @@ function loadCollection() {
             return accumulator;
         }, document.createElement('div'));
         collectionDisplay.appendChild(items);
+		noItems.style.display = 'none';
 	})
 	.catch(error => {
 		console.log("error loading collection: " + error);
