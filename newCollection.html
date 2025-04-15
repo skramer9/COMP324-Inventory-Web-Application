@@ -6,20 +6,9 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body class="popup-page">
-        <h2>Start New Collection</h2>
-        <!-- Side navigation with recently accessed collections -->
-        <nav class="side-nav">
-            <a href="main.html" class="side-nav">Back to Home</a>
-      
-            <div class="recent-collections">
-            <h3>Recently accessed</h3>
-            <a href="" class="side-nav">Wants</a>
-            <a href="" class="side-nav">Restaurants to try</a>
-            <a href="" class="side-nav">Movies to watch</a>
-            <a href="" class="side-nav">Books read in 2024</a>
-            </div>
-        </nav>
-        <form class="add-collection-form">
+        <form class="add-collection-form" id="newCollectionForm">
+            <h2>Start New Collection</h2>
+            
             <label for="collection-name">Collection Name</label>
             <input type="text" id="collection-name" required>
 
@@ -29,13 +18,15 @@
             <label for="collection-category">Category</label>
             <input type="text" id="collection-category">
 
-            <label for="collection-image">Image Upload</label>
-            <input type="file" id="item-image" accept="imgae/*">
+            <label for="item-image">Image Upload</label>
+            <input type="file" id="item-image" accept="image/*">
 
             <div class="form-buttons">
                 <button type="submit" class="add-button">Create Collection</button>
-                <button type="button" class="cancel-button" onclick="window.close()">Cancel</button>
+                <button type="button" class="cancel-button">Cancel</button>
             </div>
         </form>
+
+        <script src="collection-form.js"></script>
     </body>
 </html>
