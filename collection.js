@@ -3,6 +3,7 @@ function loadCollection() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const collectionName = urlParams.get('collection');
 	const collectionDisplay = document.querySelector('.collections');
+	const noItems = document.getElementById('no-items');
 
 	fetch(collectionName + '.json')
     .then(response => {
@@ -20,7 +21,7 @@ function loadCollection() {
 			description.classList.add('item-description');
 			const blurb = document.createTextNode(currentVal.blurb);
 			description.appendChild(blurb);
-			link.href = 'item.html?item=' + currentVal.name.toLowerCase();
+			link.href = 'item.html?collection=' + collectionName + '&item=' + currentVal.name.toLowerCase();
 			link.classList.add('item-link');
             const itemName = document.createTextNode(currentVal.name);
 			link.appendChild(itemName);
@@ -30,6 +31,7 @@ function loadCollection() {
             return accumulator;
         }, document.createElement('div'));
         collectionDisplay.appendChild(items);
+		noItems.style.display = 'none';
 	})
 	.catch(error => {
 		console.log("error loading collection: " + error);
