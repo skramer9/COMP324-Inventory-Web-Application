@@ -1,50 +1,105 @@
-function mainApp() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup new collection button to show modal
+    const newCollectionButton = document.getElementById('new-collection-button');
+    const modalContainer = document.getElementById('modal-container');
+    const modalClose = document.querySelector('.close-modal');
+    const modalIframe = document.getElementById('modal-iframe');
 
-	// create a popup window of newCollection.html when the user clicks on the new collection button
-	let newCollectionButton = document.getElementById('new-collection-button');
-	newCollectionButton.addEventListener('click', () => {
-		window.open('newCollection.html', 'Add a new colection', 'width=400, height=400, popup=true');
-	});
+    if (newCollectionButton && modalContainer && modalClose && modalIframe) {
+        // Open modal when new collection button is clicked
+        newCollectionButton.addEventListener('click', function() {
+            // Set the iframe source to the new collection page
+            modalIframe.src = 'newCollection.html';
+            
+            // Display the modal
+            modalContainer.style.display = 'block';
+        });
 
-	// create a popup window of addItem.html when the user clicks on the add item button
-	let addItemButton = document.getElementById('add-item-button');
-	addItemButton.addEventListener('click', () => {
-		window.open('newItem.html', 'Add a new item', 'width=400, height=600, popup=true');
-	});
+        // Close modal when close button is clicked
+        modalClose.addEventListener('click', function() {
+            modalContainer.style.display = 'none';
+        });
 
-	loadCollections();
-}
+        // Close modal when clicking outside the modal content
+        modalContainer.addEventListener('click', function(event) {
+            if (event.target === modalContainer) {
+                modalContainer.style.display = 'none';
+            }
+        });
+    }
+
+    // Load existing collections
+    loadCollections();
+
+    // Listen for messages from the collection form
+    window.addEventListener('message', function(event) {
+        // Handle new collection creation
+        if (event.data && event.data.type === 'newCollection') {
+            const newCollection = event.data.collection;
+            
+            // Close the modal
+            const modalContainer = document.getElementById('modal-container');
+            if (modalContainer) {
+                modalContainer.style.display = 'none';
+            }
+            
+            // Reload collections to update the display
+            loadCollections();
+        } else if (event.data === 'closeModal') {
+            // Close the modal if requested
+            const modalContainer = document.getElementById('modal-container');
+            if (modalContainer) {
+                modalContainer.style.display = 'none';
+            }
+        }
+    }, false);
+});
 
 function loadCollections() {
-	const noCollections = document.getElementById('no-collections');
+    const collectionsDisplay = document.getElementById('collections');
+    const noCollections = document.getElementById('no-collections');
 
-	fetch('testCollections.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-	})
-	.then(jsonData => {
-		const collectionsDisplay = document.getElementById('collections');
-		const collections = jsonData['collections'].reduce((accumulator, currentVal) => {
+    // Clear existing collections
+    if (collectionsDisplay) {
+        collectionsDisplay.innerHTML = '';
+    }
+
+    // Retrieve collections from local storage
+    const collections = JSON.parse(localStorage.getItem('collections')) || [];
+
+    if (collections.length > 0) {
+        // Create a container for collections
+        const collectionsContainer = document.createElement('div');
+
+        // Populate collections
+        collections.forEach(collection => {
             const container = document.createElement('div');
-			const link = document.createElement('a');
-			link.href = 'collection.html?collection=' + currentVal.name.toLowerCase();
-			link.classList.add('collection-link');
-			container.classList.add('display-collection');
-            const collectionText = document.createTextNode(currentVal.name);
-			link.appendChild(collectionText);
+            const link = document.createElement('a');
+            
+            link.href = `collection.html?collection=${collection.name.toLowerCase()}`;
+            link.classList.add('collection-link');
+            container.classList.add('display-collection');
+            
+            const collectionText = document.createTextNode(collection.name);
+            link.appendChild(collectionText);
             container.appendChild(link);
-            accumulator.appendChild(container);
-            return accumulator;
-        }, document.createElement('div'));
-        collectionsDisplay.appendChild(collections);
-		noCollections.style.display = 'none';
-	})
-	.catch(error => {
-		console.log("error loading collections: " + error);
-	});
-}
+            
+            collectionsContainer.appendChild(container);
+        });
 
-mainApp();
+        // Add collections to display
+        if (collectionsDisplay) {
+            collectionsDisplay.appendChild(collectionsContainer);
+        }
+
+        // Hide 'no collections' message
+        if (noCollections) {
+            noCollections.style.display = 'none';
+        }
+    } else {
+        // Show 'no collections' message
+        if (noCollections) {
+            noCollections.style.display = 'block';
+        }
+    }
+}

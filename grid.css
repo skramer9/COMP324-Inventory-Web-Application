@@ -1,17 +1,29 @@
+<<<<<<< HEAD
 
 .top-nav {
 	grid-area: top-nav;
 	grid-column: 2;
 	padding: 20px;
+=======
+.main-page {
+	margin: 0;
+	display: grid;
+	grid-template-columns: 150px 1fr;
+	grid-template-rows: auto auto 1fr;
+	grid-template-areas: 
+		"side-nav collection-banner"
+		"side-nav filter-section"
+		"side-nav collections";
+	height: 100vh;
+>>>>>>> 67b472d531a47cb96f60437d91528efe73e0b698
 }
 
 nav.side-nav {
 	grid-area: side-nav;
-	grid-column: 1;
-	grid-row: 1/-1;
-	height: 100vh;
+	background: #FFBDF7;
 }
 
+<<<<<<< HEAD
 
 .main-page {
 	margin: 0 0 0;
@@ -28,10 +40,19 @@ nav.side-nav {
 	grid-area: home-banner;
 	grid-column: 2;
 	grid-row: 2;
+=======
+.collection-banner {
+	grid-area: collection-banner;
+}
+
+.filter-section {
+	grid-area: filter-section;
+>>>>>>> 67b472d531a47cb96f60437d91528efe73e0b698
 }
 
 .collections {
 	grid-area: collections;
+<<<<<<< HEAD
 	grid-column: 2;
 	grid-row: 3;
 }
@@ -57,4 +78,8 @@ nav.side-nav {
 	grid-area: item-details-container;
 	grid-column: 2;
 	grid-row: 3;
+=======
+	overflow-y: auto; /* Add scrolling if content exceeds height */
+	padding: 20px;
+>>>>>>> 67b472d531a47cb96f60437d91528efe73e0b698
 }
