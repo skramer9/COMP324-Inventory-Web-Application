@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+/**
+ * Saves a new collection to localStorage
+ * @param {Object} collection - The collection object to save
+ */
 function saveCollection(collection) {
     // Load existing collections from local storage
     let existingCollections = JSON.parse(localStorage.getItem('collections')) || [];
@@ -64,8 +68,8 @@ function saveCollection(collection) {
     // Save updated collections to local storage
     localStorage.setItem('collections', JSON.stringify(existingCollections));
 
-    // Create an empty collection file
-    createEmptyCollectionFile(collection.name);
+    // Create an empty collection items structure in localStorage
+    createEmptyCollection(collection.name);
 
     // Send message to parent to update collections and close modal
     window.parent.postMessage({
@@ -74,22 +78,27 @@ function saveCollection(collection) {
     }, '*');
 }
 
-function createEmptyCollectionFile(collectionName) {
-    // In a real app, this would create a new JSON file on the server
-    // For this example, we'll simulate with sessionStorage
-    
+/**
+ * Creates an empty collection structure in localStorage
+ * @param {string} collectionName - The name of the collection to create
+ */
+function createEmptyCollection(collectionName) {
+    // Create an empty collection structure
     const emptyCollection = {};
     emptyCollection[collectionName] = [];
     
-    // Store in sessionStorage
-    sessionStorage.setItem(`${collectionName}_items`, JSON.stringify(emptyCollection));
+    // Store in localStorage (not sessionStorage, which only lives for the session)
+    localStorage.setItem(`${collectionName}_items`, JSON.stringify(emptyCollection));
     
-    console.log(`Created empty collection file for ${collectionName}`);
+    console.log(`Created empty collection for ${collectionName} in localStorage`);
 }
 
-// Function to load collections (kept for potential future use)
+/**
+ * Loads all collections from localStorage
+ * @returns {Array} Array of collection objects
+ */
 function loadCollections() {
     const collections = JSON.parse(localStorage.getItem('collections')) || [];
-    console.log('Loaded collections:', collections);
+    console.log('Loaded collections from localStorage:', collections);
     return collections;
 }

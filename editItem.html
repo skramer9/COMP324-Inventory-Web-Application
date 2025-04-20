@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Add New Item</title>
+    <title>Edit Item</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body class="popup-page">
-    <h2>Add New Item</h2>
+    <h2>Edit Item</h2>
     <!-- Side navigation with recently accessed collections -->
     <nav class="side-nav">
       <a href="main.html" class="side-nav">Back to Home</a>
@@ -21,22 +21,25 @@
     </nav>
     <form class="add-item-form">
       <label for="item-name">Item Name</label>
-      <input type="text" id="item-name" value="We will grab the original item name and put it here to be edited" required>
+      <input type="text" id="item-name" required>
       
       <label for="item-description">Description</label>
-      <textarea id="item-description">We will grab text from original item description and put it here to be edited</textarea>
+      <textarea id="item-description"></textarea>
       
       <label for="item-category">Category</label>
-      <input type="text" id="item-category" value="We will grab the original item category and put it here to be edited">
+      <input type="text" id="item-category">
       
       <label for="item-image">Image Upload</label>
       <input type="file" id="item-image" accept="image/*">
-      <img src="" alt="This will be the original image">
+      <img src="placeholder-image.jpg" alt="Item image preview">
       
       <div class="form-buttons">
         <button type="submit" class="update-button">Update Item</button>
-        <button type="button" class="cancel-button" onclick="window.close()">Cancel</button>
+        <button type="button" class="cancel-button">Cancel</button>
       </div>
     </form>
+    
+    <!-- Include the JavaScript file for item editing -->
+    <script type="text/javascript" src="edit-item.js"></script>
   </body>
 </html>
