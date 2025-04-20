@@ -48,6 +48,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Load the collection
+    loadCollection();
+
+    // Setup add item button
+    const addItemButton = document.getElementById('add-item-button');
+    const modalContainer = document.getElementById('modal-container');
+    const modalClose = document.querySelector('.close-modal');
+    const modalIframe = document.getElementById('modal-iframe');
+
+    if (addItemButton && modalContainer && modalClose && modalIframe) {
+        // Open modal when add item button is clicked
+        addItemButton.addEventListener('click', function() {
+            // Get the current collection name from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const collectionName = urlParams.get('collection');
+
+            // Set the iframe source to the new item page with the collection name
+            modalIframe.src = `newItem.html?collection=${collectionName}`;
+            
+            // Display the modal
+            modalContainer.style.display = 'block';
+        });
+
+        // Close modal when close button is clicked
+        modalClose.addEventListener('click', function() {
+            modalContainer.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the modal content
+        modalContainer.addEventListener('click', function(event) {
+            if (event.target === modalContainer) {
+                modalContainer.style.display = 'none';
+            }
+        });
+    }
+
+    // Listen for messages from the item form
+    window.addEventListener('message', function(event) {
+        // Close the modal
+        const modalContainer = document.getElementById('modal-container');
+        if (modalContainer) {
+            modalContainer.style.display = 'none';
+        }
+
+        // Reload the collection to show the new item
+        loadCollection();
+    }, false);
+});
+
 function loadCollection() {
     // Get the name of the collection that was passed into the URL
     const urlParams = new URLSearchParams(window.location.search);
