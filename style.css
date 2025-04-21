@@ -530,3 +530,48 @@ button:focus, input:focus, textarea:focus, a:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
+
+/* Emoji Grid Styling */
+.emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.emoji-option {
+    text-align: center;
+}
+
+.emoji-option input[type="radio"] {
+    display: none;
+}
+
+.emoji-option label {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.emoji-option input[type="radio"]:checked + label {
+    background: #FFBDF7;
+    box-shadow: 0 0 0 2px #65548f;
+}
+
+/* Collection display emoji styling */
+.display-collection .collection-emoji {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Side navigation emoji styling */
+.side-nav .nav-emoji {
+    margin-right: 6px;
+}

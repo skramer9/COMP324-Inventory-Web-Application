@@ -121,10 +121,85 @@ function openEditCollectionModal(collectionName) {
                 <meta charset="utf-8">
                 <title>Edit Collection</title>
                 <link rel="stylesheet" href="style.css">
+                <style>
+                    /* Emoji Grid Styling for edit form */
+                    .emoji-grid {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        margin-bottom: 20px;
+                    }
+
+                    .emoji-option {
+                        text-align: center;
+                    }
+
+                    .emoji-option input[type="radio"] {
+                        display: none;
+                    }
+
+                    .emoji-option label {
+                        display: block;
+                        width: 50px;
+                        height: 50px;
+                        background: white;
+                        border-radius: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        font-size: 24px;
+                    }
+
+                    .emoji-option input[type="radio"]:checked + label {
+                        background: #FFBDF7;
+                        box-shadow: 0 0 0 2px #65548f;
+                    }
+                </style>
             </head>
             <body class="popup-page">
                 <form class="add-collection-form" id="editCollectionForm">
                     <h2>Edit Collection</h2>
+                    
+                    <label for="collection-emoji">Choose an icon</label>
+                    <div class="emoji-grid">
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-books" value="📚">
+                            <label for="emoji-books">📚</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-film" value="🎬">
+                            <label for="emoji-film">🎬</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-music" value="🎵">
+                            <label for="emoji-music">🎵</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-food" value="🍽️">
+                            <label for="emoji-food">🍽️</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-travel" value="✈️">
+                            <label for="emoji-travel">✈️</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-games" value="🎮">
+                            <label for="emoji-games">🎮</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-art" value="🎨">
+                            <label for="emoji-art">🎨</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-wishlist" value="💫">
+                            <label for="emoji-wishlist">💫</label>
+                        </div>
+                        <div class="emoji-option">
+                            <input type="radio" name="collection-emoji" id="emoji-folder" value="📁">
+                            <label for="emoji-folder">📁</label>
+                        </div>
+                    </div>
                     
                     <label for="collection-name">Collection Name</label>
                     <input type="text" id="collection-name" required>
@@ -170,6 +245,20 @@ function openEditCollectionModal(collectionName) {
                         document.getElementById('collection-description').value = collection.description || '';
                         document.getElementById('collection-category').value = collection.category || '';
                         
+                        // Set the selected emoji if available
+                        if (collection.emoji) {
+                            const emojiInput = document.querySelector(\`input[value="\${collection.emoji}"]\`);
+                            if (emojiInput) {
+                                emojiInput.checked = true;
+                            } else {
+                                // If the current emoji isn't in our options, select the default folder
+                                document.getElementById('emoji-folder').checked = true;
+                            }
+                        } else {
+                            // Default to folder emoji if none set
+                            document.getElementById('emoji-folder').checked = true;
+                        }
+                        
                         // Display current image if available
                         if (collection.imageUrl) {
                             const currentImage = document.getElementById('current-image');
@@ -190,6 +279,9 @@ function openEditCollectionModal(collectionName) {
                             const category = document.getElementById('collection-category').value;
                             const imageInput = document.getElementById('item-image');
                             
+                            // Get the selected emoji
+                            const selectedEmoji = document.querySelector('input[name="collection-emoji"]:checked').value;
+                            
                             // Check if collection with the new name already exists (if name was changed)
                             if (newName.toLowerCase() !== collection.name.toLowerCase() && 
                                 collections.some(c => c.name.toLowerCase() === newName.toLowerCase())) {
@@ -201,6 +293,7 @@ function openEditCollectionModal(collectionName) {
                             collection.name = newName;
                             collection.description = description;
                             collection.category = category;
+                            collection.emoji = selectedEmoji;
                             collection.lastAccessed = new Date().toISOString();
                             
                             // Handle image upload if a new image was selected
@@ -483,13 +576,18 @@ function fetchCollectionFromJSON(collectionName, collectionDisplay, noItems) {
 function updateCollectionTitle(collectionName) {
     if (!collectionName) return;
     
+    // Get collection emoji from localStorage
+    const collections = JSON.parse(localStorage.getItem('collections')) || [];
+    const currentCollection = collections.find(c => c.name.toLowerCase() === collectionName.toLowerCase());
+    const collectionEmoji = currentCollection?.emoji || '📁';
+    
     // Format collection name with first letter capitalized
     const formattedName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
     
     // Update the h1 in the collection banner
     const titleElement = document.querySelector('.collection-banner h1');
     if (titleElement) {
-        titleElement.textContent = formattedName;
+        titleElement.innerHTML = `${collectionEmoji} ${formattedName}`;
     }
     
     // Update document title

@@ -4,6 +4,55 @@
         <meta charset="utf-8">
         <title>Start New Collection</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            /* Emoji Grid Styling */
+            .emoji-section {
+                margin-top: 20px;
+                border-top: 1px solid #eee;
+                padding-top: 15px;
+            }
+            
+            .emoji-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .emoji-option {
+                text-align: center;
+            }
+
+            .emoji-option input[type="radio"] {
+                display: none;
+            }
+
+            .emoji-option label {
+                display: block;
+                width: 100%;
+                height: 50px;
+                background: white;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 24px;
+            }
+
+            .emoji-option input[type="radio"]:checked + label {
+                background: #FFBDF7;
+                box-shadow: 0 0 0 2px #65548f;
+            }
+            
+            .emoji-label {
+                display: block;
+                font-size: 12px;
+                margin-top: 5px;
+                color: #666;
+                text-align: center;
+            }
+        </style>
     </head>
     <body class="popup-page">
         <form class="add-collection-form" id="newCollectionForm">
@@ -17,9 +66,76 @@
 
             <label for="collection-category">Category</label>
             <input type="text" id="collection-category">
-
-            <label for="item-image">Image Upload</label>
-            <input type="file" id="item-image" accept="image/*">
+            
+            <div class="emoji-section">
+                <label>Choose an icon for your collection</label>
+                <div class="emoji-grid">
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-books" value="📚" checked>
+                        <label for="emoji-books">📚</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-film" value="🎬">
+                        <label for="emoji-film">🎬</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-music" value="🎵">
+                        <label for="emoji-music">🎵</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-food" value="🍽️">
+                        <label for="emoji-food">🍽️</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-art" value="🎨">
+                        <label for="emoji-art">🎨</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-game" value="🎮">
+                        <label for="emoji-game">🎮</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-travel" value="✈️">
+                        <label for="emoji-travel">✈️</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-wishlist" value="💫">
+                        <label for="emoji-wishlist">💫</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-clothes" value="👕">
+                        <label for="emoji-clothes">👕</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-tech" value="📱">
+                        <label for="emoji-tech">📱</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-sports" value="⚽">
+                        <label for="emoji-sports">⚽</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-drink" value="🍹">
+                        <label for="emoji-drink">🍹</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-car" value="🚗">
+                        <label for="emoji-car">🚗</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-plant" value="🌱">
+                        <label for="emoji-plant">🌱</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-photo" value="📷">
+                        <label for="emoji-photo">📷</label>
+                    </div>
+                    <div class="emoji-option">
+                        <input type="radio" name="collection-emoji" id="emoji-folder" value="📁">
+                        <label for="emoji-folder">📁</label>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-buttons">
                 <button type="submit" class="add-button">Create Collection</button>
