@@ -108,12 +108,19 @@ function saveItem(item, collectionName) {
         existingItems[collectionName] = [];
     }
 
-    existingItems[collectionName].push(item);
+    // Add the new item to the beginning of the array instead of the end
+    existingItems[collectionName].unshift(item);
 
     // Save updated items to local storage
     localStorage.setItem(`${collectionName}_items`, JSON.stringify(existingItems));
 
     // Show success message
     alert('Item added successfully!');
-    window.parent.postMessage('closeModal', '*');
+    
+    // Send a more specific message to the parent window
+    window.parent.postMessage({
+        type: 'itemAdded',
+        collectionName: collectionName,
+        item: item
+    }, '*');
 }

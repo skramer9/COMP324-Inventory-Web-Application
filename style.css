@@ -14,23 +14,52 @@ h1 {
     margin-top: 15%;
     margin-bottom: 1%;
     width: 50%;
-    border-radius: 5px;
+    border-radius: 20px;
+}
+
+/* Consistent button styling variables */
+:root {
+    --primary-color: #65548f;
+    --secondary-color: #FFBDF7;
+    --danger-color: #ff6b6b;
+    --button-radius: 20px;
+    --button-padding: 10px 20px;
+}
+
+/* Standard button styling */
+button, .btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--button-radius);
+    padding: var(--button-padding);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover, .btn:hover {
+    background-color: #7a6aaa;
+    transform: translateY(-2px);
+}
+
+button:active, .btn:active {
+    transform: translateY(1px);
 }
 
 #login-button {
     background: white;
     margin: auto;
     width: 10%;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     display: block;
 }
 
 .login {
     color: white;
-    background: #65548f;
+    background: var(--primary-color);
     margin: auto;
     width: 50%;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 /* forgot password button */
@@ -44,7 +73,9 @@ input {
     margin: auto;
     margin-top: 1%;
     margin-bottom: 1%;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
+    padding: 8px;
+    border: 1px solid #ccc;
 }
 
 /* left margin should be the same as the side nav width */
@@ -70,14 +101,14 @@ section.home-banner {
 /* add to your collections and create a new collection buttons */
 button#new-collection-button {
     color: white;
-    background: #65548f;
-    border-radius: 5px;
-    padding: 10px 20px;
+    background: var(--primary-color);
+    border-radius: var(--button-radius);
+    padding: var(--button-padding);
 }
 
 /* side navigation bar */
 nav.side-nav {
-    background: #FFBDF7;
+    background: var(--secondary-color);
 }
 
 /* sidenav links should not appear as inline */
@@ -98,11 +129,11 @@ a.side-nav {
 }
 
 .display-collection {
-    background: #65548f;
+    background: var(--primary-color);
     padding: 20px;
     margin: 10px;
     color: white;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 .display-item {
@@ -110,7 +141,7 @@ a.side-nav {
     padding: 20px;
     margin: 10px;
     color: white;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 .item-description {
@@ -128,21 +159,22 @@ a.collection-link {
     background: white;
     padding: 20px;
     margin: 20px;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     display: inline-block;
     width: 300px;
     text-align: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .item-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 .item-card h3 {
-    color: #65548f;
+    color: var(--primary-color);
     margin: 10px 0;
 }
 
@@ -202,7 +234,8 @@ a.collection-link {
     gap: 5px;
     padding: 5px 15px;
     background: #f5f5f5;
-    border-radius: 20px;
+    border-radius: var(--button-radius);
+    cursor: pointer;
 }
 
 /* Item row styling */
@@ -222,7 +255,7 @@ a.collection-link {
     width: 100px;
     height: 150px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 .item-details {
@@ -258,11 +291,11 @@ a.collection-link {
 
 /* Styling for the add item button and the update item button */
 .add-button, .update-button {
-    background: #65548f;
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -280,7 +313,7 @@ a.collection-link {
 }
 
 .recent-collections h3 {
-    color: #65548f;
+    color: var(--primary-color);
     font-size: 0.9em;
     padding: 10px;
     margin: 0;
@@ -290,11 +323,11 @@ a.collection-link {
 
 /* Adjust the side nav links to look more like a list */
 .side-nav a {
-    color: #65548f;
+    color: var(--primary-color);
     text-decoration: none;
     padding: 10px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     transition: background-color 0.2s;
 }
 
@@ -315,19 +348,9 @@ a.collection-link {
     display: none;
 }
 
-/* Make sure all interactive elements have pointer cursor */
-.add-button, 
-.new-collection-button,
-.banner-buttons button,
-.filter-checkbox,
-.sort-dropdown,
-.rating-filter {
-    cursor: pointer !important;
-}
-
 /* Ensure buttons in the banner section also have pointer cursor */
 .collection-banner button {
-    cursor: pointer !important;
+    cursor: pointer;
 }
 
 /* Add item form styling */
@@ -338,30 +361,34 @@ a.collection-link {
 }
 
 .popup-page h2 {
-    color: #65548f;
+    color: var(--primary-color);
     margin-bottom: 20px;
 }
 
-.add-item-form {
+.add-item-form, .add-collection-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.add-item-form label {
-    color: #65548f;
+.add-item-form label, .add-collection-form label {
+    color: var(--primary-color);
     margin-top: 10px;
 }
 
 .add-item-form input,
-.add-item-form textarea {
+.add-item-form textarea,
+.add-collection-form input,
+.add-collection-form textarea {
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     width: 100%;
+    margin: 5px 0;
 }
 
-.add-item-form textarea {
+.add-item-form textarea,
+.add-collection-form textarea {
     min-height: 100px;
     resize: vertical;
 }
@@ -373,18 +400,12 @@ a.collection-link {
 }
 
 .cancel-button {
-    background: #ff6b6b;
+    background: var(--danger-color);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
     cursor: pointer;
-}
-
-/* Make form inputs take up less vertical space */
-.add-item-form input,
-.add-item-form textarea {
-    margin: 5px 0;
 }
 
 /* Item details page styling */
@@ -392,8 +413,9 @@ a.collection-link {
     padding: 20px;
     margin: 20px;
     background: white;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     text-transform: capitalize;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .item-main-content {
@@ -405,7 +427,7 @@ a.collection-link {
     width: 300px;
     height: 400px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
 }
 
 .item-info {
@@ -413,7 +435,7 @@ a.collection-link {
 }
 
 #item-name {
-    color: #65548f;
+    color: var(--primary-color);
     margin-top: 0;
 }
 
@@ -441,42 +463,15 @@ a.collection-link {
 }
 
 .tag {
-    background: #edcbe6;
-    color: #65548f;
+    background: var(--secondary-color);
+    color: var(--primary-color);
     padding: 5px 15px;
-    border-radius: 15px;
+    border-radius: var(--button-radius);
     font-size: 0.9em;
 }
 
 #delete-item-button {
-    background: #ff6b6b;
-}
-
-.add-collection-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.add-collection-form label {
-    color:#65548f;
-    margin-top: 10px;
-}
-
-.add-collection-form textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.add-collection-form input, .add-collection-form textarea {
-    padding: 8px;
-    border:1px solid #ccc;
-    border-radius: 5px;
-    width: 100%
-}
-
-.add-collection-form input, .add-collection-form textarea {
-    margin:5px 0;
+    background: var(--danger-color);
 }
 
 /* Modal styling */
@@ -496,14 +491,15 @@ a.collection-link {
     background-color: #edcbe6;
     margin: 10% auto;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: var(--button-radius);
     width: 80%;
     max-width: 500px;
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .close-modal {
-    color: #65548f;
+    color: var(--primary-color);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -521,3 +517,61 @@ a.collection-link {
     background: transparent;
 }
 
+/* Sort dropdown and rating filter */
+.sort-dropdown, .rating-filter {
+    padding: 5px 15px;
+    background: #f5f5f5;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+/* Consistent focus styles for better accessibility */
+button:focus, input:focus, textarea:focus, a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Emoji Grid Styling */
+.emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.emoji-option {
+    text-align: center;
+}
+
+.emoji-option input[type="radio"] {
+    display: none;
+}
+
+.emoji-option label {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.emoji-option input[type="radio"]:checked + label {
+    background: #FFBDF7;
+    box-shadow: 0 0 0 2px #65548f;
+}
+
+/* Collection display emoji styling */
+.display-collection .collection-emoji {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Side navigation emoji styling */
+.side-nav .nav-emoji {
+    margin-right: 6px;
+}

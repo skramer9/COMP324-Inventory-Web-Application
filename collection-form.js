@@ -13,12 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const category = document.getElementById('collection-category').value;
         const imageInput = document.getElementById('item-image'); // Note your HTML uses item-image not collection-image
         
+        // Get the selected emoji
+        const selectedEmoji = document.querySelector('input[name="collection-emoji"]:checked').value;
+        
         // Create collection object
         const collection = {
             id: Date.now().toString(),
             name: name,
             description: description,
             category: category,
+            emoji: selectedEmoji, // Store the selected emoji
             lastAccessed: new Date().toISOString()
         };
         

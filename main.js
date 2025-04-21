@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load existing collections
     loadCollections();
+    
+    // Update the side navigation with recent collections
+    updateSideNav();
 
     // Listen for messages from the collection form
     window.addEventListener('message', function(event) {
@@ -45,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Reload collections to update the display
             loadCollections();
+            
+            // Update the side navigation
+            updateSideNav();
         } else if (event.data === 'closeModal') {
             // Close the modal if requested
             const modalContainer = document.getElementById('modal-container');
@@ -80,8 +86,14 @@ function loadCollections() {
             link.classList.add('collection-link');
             container.classList.add('display-collection');
             
-            const collectionText = document.createTextNode(collection.name);
-            link.appendChild(collectionText);
+            // Add emoji if available, or use a default
+            const emojiSpan = document.createElement('span');
+            emojiSpan.className = 'collection-emoji';
+            emojiSpan.textContent = collection.emoji || '📁';
+            
+            // Add emoji and collection name
+            link.appendChild(emojiSpan);
+            link.appendChild(document.createTextNode(collection.name));
             container.appendChild(link);
             
             collectionsContainer.appendChild(container);
@@ -102,4 +114,40 @@ function loadCollections() {
             noCollections.style.display = 'block';
         }
     }
+}
+
+// New function to update the side navigation with recent collections
+function updateSideNav() {
+    const recentCollectionsDiv = document.querySelector('.recent-collections');
+    if (!recentCollectionsDiv) return;
+    
+    // Clear existing links except the heading
+    const heading = recentCollectionsDiv.querySelector('h3');
+    recentCollectionsDiv.innerHTML = '';
+    if (heading) {
+        recentCollectionsDiv.appendChild(heading);
+    }
+    
+    // Get collections sorted by last accessed
+    const collections = JSON.parse(localStorage.getItem('collections')) || [];
+    const recentCollections = collections
+        .sort((a, b) => new Date(b.lastAccessed) - new Date(a.lastAccessed))
+        .slice(0, 4); // Get only the 4 most recent
+    
+    // Add links with emojis
+    recentCollections.forEach(collection => {
+        const link = document.createElement('a');
+        link.href = `collection.html?collection=${collection.name.toLowerCase()}`;
+        link.classList.add('side-nav');
+        
+        // Add emoji if available, or use a default
+        const emojiSpan = document.createElement('span');
+        emojiSpan.className = 'nav-emoji';
+        emojiSpan.textContent = collection.emoji || '📁';
+        
+        link.appendChild(emojiSpan);
+        link.appendChild(document.createTextNode(collection.name));
+        
+        recentCollectionsDiv.appendChild(link);
+    });
 }
