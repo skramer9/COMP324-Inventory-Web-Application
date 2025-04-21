@@ -8,7 +8,7 @@
     --bg-color: #f9f6fd;
     --text-dark: #2c2233;
     --text-light: #f5f5f5;
-    --radius: 20px;
+   --button-radius: 20px;
     --padding: 10px 20px;
     --shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
@@ -263,22 +263,32 @@ h3 {
 
 
 /* BUTTONS */
-.btn {
+/* Standard button styling */
+button, .btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: var(--radius);
-    padding: var(--padding);
+    border-radius: var(--button-radius);
+    padding: var(--button-padding);
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.btn:hover {
+button:hover, .btn:hover {
     background-color: #7a6aaa;
     transform: translateY(-2px);
+}
+
+button:active, .btn:active {
+    transform: translateY(1px);
+}
+
+#login-button {
+    background: white;
+    margin: auto;
+    width: 10%;
+    border-radius: var(--button-radius);
+    display: block;
 }
 
 .btn:active {
@@ -309,6 +319,15 @@ button:focus, input:focus, textarea:focus, a:focus {
     border-radius: var(--button-radius);
     cursor: pointer;
 }
+
+.cancel-button {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
 /* Styling for the add item button and the update item button */
 .add-button, .update-button {
     background: var(--primary-color);
@@ -320,6 +339,10 @@ button:focus, input:focus, textarea:focus, a:focus {
     align-items: center;
     gap: 5px;
     cursor: pointer;
+}
+
+.item-card button {
+    margin: 5px;
 }
 
 #login-button {
@@ -343,6 +366,19 @@ button:focus, input:focus, textarea:focus, a:focus {
 }
 /* Ensure buttons in the banner section also have pointer cursor */
 .collection-banner button {
+    cursor: pointer;
+}
+
+/* Styling for the add item button and the update item button */
+.add-button, .update-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    display: flex;
+    align-items: center;
+    gap: 5px;
     cursor: pointer;
 }
 

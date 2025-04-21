@@ -3,7 +3,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const errorMessage = document.getElementById("error-message");
+    const errorMessage = document.getElementById("incorrect username or password");
   
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
