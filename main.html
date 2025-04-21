@@ -7,9 +7,18 @@
     <link rel="stylesheet" href="grid.css">
   </head>
   <body class="main-page">
+
     <!-- Side navigation with recently accessed collections -->
     <nav class="side-nav">
       <a href="main.html" class="side-nav">Back to Home</a>
+
+      <div class="theme-toggle-wrapper">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+          🌙
+        </button>
+      </div>
+      
+      
       
       <div class="recent-collections">
         <h3>Recently accessed</h3>
@@ -19,6 +28,8 @@
         <a href="" class="side-nav">Books read in 2024</a>
       </div>
     </nav>
+
+    
 
     <!-- Banner section with background image -->
     <section class="collection-banner">
@@ -41,6 +52,10 @@
       </div>
     </div>
 
+    <div class="alert alert-success">Item added successfully!</div>
+
     <script type="text/javascript" src="main.js"></script>
+    <script src="theme-toggle.js"></script>
+
   </body>
 </html>
