@@ -1,6 +1,101 @@
-/* fonts applied to whole site */
+/* 1. ROOT AND TYPOGRAPHY */
+
+:root {
+    --font-main: "Verdana", "Helvetica", "Arial", sans-serif;
+    --primary-color: #65548f;
+    --secondary-color: #FFBDF7;
+    --danger-color: #ff6b6b;
+    --light-gray: #f5f5f5;
+    --dark-bg: #121212;
+    --text-light: #e4e4e4;
+    --text-dark: #333;
+    --radius: 20px;
+    --padding: 10px 20px;
+    --shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
 body {
-    font-family: Verdana, Helvetica, Arial;
+    font-family: var(--font-main);
+    background: var(--bg-color, #ffffff);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* DARK MODE */
+body.dark-mode {
+    --bg-color: var(--dark-bg);
+    --text-dark: var(--text-light);
+    --primary-color: #a78bfa;
+    --secondary-color: #6d5ba6;
+}
+
+a, button, input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* SKIP LINK FOR ACCESSIBILITY */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    background: white;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+}
+
+/* 2. LAYOUT AND NAVIGATION */
+
+.header,
+.footer,
+.main,
+.sidebar {
+    padding: 20px;
+}
+
+.main {
+    margin-left: 150px;
+}
+
+.sidebar {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+        padding: 10px;
+    }
+    .sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+    }
+}
+/* Adjust the side nav links to look more like a list */
+.side-nav a {
+    display: block;
+    text-align: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: var(--button-radius);
+    transition: background-color 0.2s;
+  }
+  
+
+.side-nav a:hover {
+    background-color: rgba(101, 84, 143, 0.1);
 }
 
 /* login page background color */
@@ -15,44 +110,9 @@ h1 {
     margin-bottom: 1%;
     width: 50%;
     border-radius: 20px;
+    font-size: 2rem;
 }
 
-/* Consistent button styling variables */
-:root {
-    --primary-color: #65548f;
-    --secondary-color: #FFBDF7;
-    --danger-color: #ff6b6b;
-    --button-radius: 20px;
-    --button-padding: 10px 20px;
-}
-
-/* Standard button styling */
-button, .btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: var(--button-radius);
-    padding: var(--button-padding);
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-button:hover, .btn:hover {
-    background-color: #7a6aaa;
-    transform: translateY(-2px);
-}
-
-button:active, .btn:active {
-    transform: translateY(1px);
-}
-
-#login-button {
-    background: white;
-    margin: auto;
-    width: 10%;
-    border-radius: var(--button-radius);
-    display: block;
-}
 
 .login {
     color: white;
@@ -83,229 +143,6 @@ input {
     margin-left: 150px;
 }
 
-/* all text in the home banner is white */
-.home-banner {
-    color: white;
-}
-
-/* homebanner background gradient at 180 degrees (up and down) from a light grey to dark grey */
-section.home-banner {
-    background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
-    height: 120px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* add to your collections and create a new collection buttons */
-button#new-collection-button {
-    color: white;
-    background: var(--primary-color);
-    border-radius: var(--button-radius);
-    padding: var(--button-padding);
-}
-
-/* side navigation bar */
-nav.side-nav {
-    background: var(--secondary-color);
-}
-
-/* sidenav links should not appear as inline */
-a.side-nav {
-    display: block;
-    text-align: center;
-}
-
-/* Update collections class to align left */
-.collections {
-    text-align: left;
-    padding: 20px;
-}
-
-/* Make sure the empty state message stays centered */
-.collections > p {
-    text-align: center;
-}
-
-.display-collection {
-    background: var(--primary-color);
-    padding: 20px;
-    margin: 10px;
-    color: white;
-    border-radius: var(--button-radius);
-}
-
-.display-item {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    margin: 10px;
-    color: white;
-    border-radius: var(--button-radius);
-}
-
-.item-description {
-    font-size: 12px;
-}
-
-a.item-link,
-a.collection-link {
-    color: white;
-    text-decoration: none;
-}
-
-/* Item card styling */
-.item-card {
-    background: white;
-    padding: 20px;
-    margin: 20px;
-    border-radius: var(--button-radius);
-    display: inline-block;
-    width: 300px;
-    text-align: left;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.item-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--button-radius);
-}
-
-.item-card h3 {
-    color: var(--primary-color);
-    margin: 10px 0;
-}
-
-.item-card button {
-    margin: 5px;
-}
-
-/* Collection banner styling */
-.collection-banner {
-    background-image: url('books-background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 40px 20px;
-    color: white;
-    position: relative;
-}
-
-.collection-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.collection-banner h1 {
-    position: relative;
-    z-index: 2;
-    background: none;
-    color: white;
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.banner-buttons {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    gap: 10px;
-}
-
-/* Filter section */
-.filter-section {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    gap: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.filter-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 15px;
-    background: #f5f5f5;
-    border-radius: var(--button-radius);
-    cursor: pointer;
-}
-
-/* Item row styling */
-.collection-items {
-    padding: 20px;
-}
-
-.item-row {
-    display: flex;
-    align-items: start;
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-    gap: 20px;
-}
-
-.item-image {
-    width: 100px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: var(--button-radius);
-}
-
-.item-details {
-    flex: 1;
-}
-
-.item-details h3 {
-    margin: 0;
-    color: #333;
-}
-
-.author {
-    color: #666;
-    margin: 5px 0;
-}
-
-.description {
-    color: #444;
-    line-height: 1.4;
-}
-
-.item-rating {
-    color: #ffd700;
-}
-
-.favorite-button {
-    background: none;
-    border: none;
-    color: #ff4081;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Styling for the add item button and the update item button */
-.add-button, .update-button {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: var(--button-padding);
-    border-radius: var(--button-radius);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.plus {
-    font-size: 20px;
-    line-height: 1;
-}
 
 /* Recent collections section in side nav */
 .recent-collections {
@@ -321,76 +158,53 @@ a.collection-link {
     background: none;
 }
 
-/* Adjust the side nav links to look more like a list */
-.side-nav a {
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 10px;
-    margin: 5px;
-    border-radius: var(--button-radius);
-    transition: background-color 0.2s;
+/* 3. COMPONENTS */
+
+/* TYPOGRAPHY SCALE */
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
 }
 
-.side-nav a:hover {
-    background-color: rgba(101, 84, 143, 0.1);
+h2 {
+    font-size: 1.5rem;
 }
 
-/* Empty state styling */
-.empty-state {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 1.1em;
+h3 {
+    font-size: 1.25rem;
 }
 
-/* Hide empty state when items exist */
-.collection-items:not(:empty) .empty-state {
-    display: none;
-}
 
-/* Ensure buttons in the banner section also have pointer cursor */
-.collection-banner button {
+/* BUTTONS */
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: var(--padding);
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Add item form styling */
-.popup-page {
-    padding: 20px;
-    background: #edcbe6;
-    margin: 0;
+.btn:hover {
+    background-color: #7a6aaa;
+    transform: translateY(-2px);
 }
 
-.popup-page h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.btn:active {
+    transform: translateY(1px);
 }
 
-.add-item-form, .add-collection-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.btn--danger {
+    background-color: var(--danger-color);
 }
 
-.add-item-form label, .add-collection-form label {
-    color: var(--primary-color);
-    margin-top: 10px;
-}
-
-.add-item-form input,
-.add-item-form textarea,
-.add-collection-form input,
-.add-collection-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: var(--button-radius);
-    width: 100%;
-    margin: 5px 0;
-}
-
-.add-item-form textarea,
-.add-collection-form textarea {
-    min-height: 100px;
-    resize: vertical;
+/* Consistent focus styles for better accessibility */
+button:focus, input:focus, textarea:focus, a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .form-buttons {
@@ -407,6 +221,106 @@ a.collection-link {
     border-radius: var(--button-radius);
     cursor: pointer;
 }
+/* Styling for the add item button and the update item button */
+.add-button, .update-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+#login-button {
+    background: white;
+    margin: auto;
+    width: 10%;
+    border-radius: var(--button-radius);
+    display: block;
+}
+
+#delete-item-button {
+    background: var(--danger-color);
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+    color: #ff4081;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* Ensure buttons in the banner section also have pointer cursor */
+.collection-banner button {
+    cursor: pointer;
+}
+
+/* add to your collections and create a new collection buttons */
+button#new-collection-button {
+    color: white;
+    background: var(--primary-color);
+    border-radius: var(--button-radius);
+    padding: var(--button-padding);
+}
+
+/* ITEMS */
+
+/* ITEM CARD STYLING */
+.item-card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.item-card h3 {
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+/* Display collections/items */
+.display-collection,
+.display-item {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.display-item {
+    background: rgba(0, 0, 0, 0.5); /* only this line is different */
+}
+
+.collections > p {
+    text-align: center;
+}
+
+
+.item-description {
+    font-size: 12px;
+}
+
+a.item-link,
+a.collection-link {
+    color: white;
+    text-decoration: none;
+}
+
 
 /* Item details page styling */
 .item-details-container {
@@ -469,34 +383,199 @@ a.collection-link {
     border-radius: var(--button-radius);
     font-size: 0.9em;
 }
-
-#delete-item-button {
-    background: var(--danger-color);
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1em;
 }
 
-/* Modal styling */
-.modal {
+/* Hide empty state when items exist */
+.collection-items:not(:empty) .empty-state {
+    display: none;
+}
+
+/* Add item form styling */
+.popup-page {
+    padding: 20px;
+    background: #edcbe6;
+    margin: 0;
+}
+
+.popup-page h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+/* side navigation bar */
+nav.side-nav {
+    background: var(--secondary-color);
+}
+
+/* Update collections class to align left */
+.collections {
+    text-align: left;
+    padding: 20px;
+}
+
+/* Filter section */
+.filter-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    background: #f5f5f5;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+
+.plus {
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* Sort dropdown and rating filter */
+.sort-dropdown, .rating-filter {
+    padding: 5px 15px;
+    background: #f5f5f5;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+
+.add-item-form, .add-collection-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-item-form label, .add-collection-form label {
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.add-item-form input,
+.add-item-form textarea,
+.add-collection-form input,
+.add-collection-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: var(--button-radius);
+    width: 100%;
+    margin: 5px 0;
+}
+
+.add-item-form textarea,
+.add-collection-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* BANNERS */
+.banner {
+    background: linear-gradient(180deg, #A9A9A9, #D3D3D3);
+    padding: 40px;
+    color: white;
+    text-align: center;
+  }
+  
+  .banner__title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  /* all text in the home banner is white */
+.home-banner {
+    color: white;
+}
+
+/* homebanner background gradient at 180 degrees (up and down) from a light grey to dark grey */
+section.home-banner {
+    background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
+    height: 120px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+  /* COLLECTION BANNER STYLING */
+
+.collection-banner {
+    background-image: url('books-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: white;
+    position: relative;
+}
+
+.collection-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.collection-banner h1 {
+    position: relative;
+    z-index: 2;
+    background: none;
+    color: white;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.banner-buttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+}
+  
+  /* MODAL */
+  .modal {
     display: none;
     position: fixed;
     z-index: 1000;
+    inset: 0;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
-}
-
-.modal-content {
-    background-color: #edcbe6;
+  }
+  
+  .modal--open {
+    display: block;
+  }
+  
+  .modal__content {
+    background: var(--secondary-color);
     margin: 10% auto;
     padding: 20px;
     border-radius: var(--button-radius);
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+  }
 
 .close-modal {
     color: var(--primary-color);
@@ -516,22 +595,59 @@ a.collection-link {
     border: none;
     background: transparent;
 }
+  
+  /* ALERTS */
 
-/* Sort dropdown and rating filter */
-.sort-dropdown, .rating-filter {
-    padding: 5px 15px;
-    background: #f5f5f5;
-    border-radius: var(--button-radius);
-    cursor: pointer;
-}
+  .alert {
+    padding: 15px;
+    border-radius: var(--radius);
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .alert--success {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .alert--error {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* FORMS */
 
-/* Consistent focus styles for better accessibility */
-button:focus, input:focus, textarea:focus, a:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    margin: 5px 0;
+  }
+  
+  label {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 10px;
+  }
+  
+  /* SCROLL EFFECT */
 
-/* Emoji Grid Styling */
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* EMOJI GRID STYLING */
+
 .emoji-grid {
     display: flex;
     flex-wrap: wrap;
@@ -565,13 +681,34 @@ button:focus, input:focus, textarea:focus, a:focus {
     box-shadow: 0 0 0 2px #65548f;
 }
 
-/* Collection display emoji styling */
+/* COLLECTION DISPLAY EMOJI STYLING */
 .display-collection .collection-emoji {
     font-size: 18px;
     margin-right: 8px;
 }
 
-/* Side navigation emoji styling */
+/* SIDE NAVIGATION EMOJI STYLING */
 .side-nav .nav-emoji {
     margin-right: 6px;
 }
+
+  /* 4. UTILITY CLASSES */
+
+  .hidden {
+    display: none;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .mt-1 { margin-top: 10px; }
+  .mt-2 { margin-top: 20px; }
+  .mb-1 { margin-bottom: 10px; }
+  .mb-2 { margin-bottom: 20px; }
