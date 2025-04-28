@@ -3,12 +3,12 @@
 :root {
     --font-main: "Verdana", "Helvetica", "Arial", sans-serif;
     --primary-color: #6d4c9c;
-    --secondary-color: #f3d6ff;
+    --secondary-color: #9956b5;
     --danger-color: #e63946;
-    --bg-color: #f9f6fd;
+    --bg-color: #9874c8;
     --text-dark: #2c2233;
-    --text-light: #f5f5f5;
-   --button-radius: 20px;
+    --text-light: #100f0f;
+    --button-radius: 20px;
     --padding: 10px 20px;
     --shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
@@ -91,12 +91,12 @@ a, button, input, textarea {
   }
   
   body.dark-mode .side-nav a {
-    color: #dcd6f7;
+    color: #615981;
   }
   
   body.dark-mode .side-nav a:hover {
     background-color: rgba(255, 255, 255, 0.05);
-    color: white;
+    color: rgb(88, 82, 82);
   }
   
 /* Sidebar in light mode */
@@ -369,6 +369,11 @@ button:focus, input:focus, textarea:focus, a:focus {
     cursor: pointer;
 }
 
+#collection {
+    background-color: #615981;
+}
+
+
 /* Styling for the add item button and the update item button */
 .add-button, .update-button {
     background: var(--primary-color);
@@ -609,7 +614,7 @@ nav.side-nav {
 .banner {
     background: linear-gradient(180deg, #A9A9A9, #D3D3D3);
     padding: 40px;
-    color: white;
+    color: rgb(88, 44, 153);
     text-align: center;
   }
   
@@ -620,12 +625,12 @@ nav.side-nav {
 
   /* all text in the home banner is white */
 .home-banner {
-    color: white;
+    color: rgb(69, 37, 183);
 }
 
 /* homebanner background gradient at 180 degrees (up and down) from a light grey to dark grey */
 section.home-banner {
-    background-image: linear-gradient(180deg, #A9A9A9, #D3D3D3);
+    background-image: linear-gradient(180deg, #8869e6, #6a3a97);
     height: 120px;
     padding: 20px;
     display: flex;
@@ -641,7 +646,7 @@ section.home-banner {
     background-size: cover;
     background-position: center;
     padding: 40px 20px;
-    color: white;
+    color: rgb(58, 69, 156);
     position: relative;
 }
 
@@ -659,7 +664,7 @@ section.home-banner {
 .collection-banner h1 {
     position: relative;
     z-index: 2;
-    background: none;
+    background: #615981;
     color: white;
     margin: 0;
     margin-bottom: 20px;
